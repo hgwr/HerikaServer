@@ -294,7 +294,8 @@ if ($connectionHandler->primary_handler === false) {
         if ($position !== false) {
             $extractedData = substr($buffer, 0, $position + 1);
             $remainingData = substr($buffer, $position + 1);
-            $sentences=split_sentences_stream(cleanResponse($extractedData));
+            // $sentences=split_sentences_stream(cleanResponse($extractedData));
+            $sentences=split_sentences_stream($extractedData);
             $GLOBALS["DEBUG_DATA"]["response"][]=["raw"=>$buffer,"processed"=>implode("|", $sentences)];
             $GLOBALS["DEBUG_DATA"]["perf"][]=(microtime(true) - $startTime)." secs in openai stream";
 
@@ -315,7 +316,8 @@ if ($connectionHandler->primary_handler === false) {
     
     
     if (trim($buffer)) {
-        $sentences=split_sentences_stream(cleanResponse(trim($buffer)));
+        // $sentences=split_sentences_stream(cleanResponse(trim($buffer)));
+        $sentences=split_sentences_stream(trim($buffer));
         $GLOBALS["DEBUG_DATA"]["response"][]=["raw"=>$buffer,"processed"=>implode("|", $sentences)];
         $GLOBALS["DEBUG_DATA"]["perf"][]=(microtime(true) - $startTime)." secs in openai stream";
         if ($gameRequest[0] != "diary") {
