@@ -89,7 +89,7 @@ function TkTokenizePrompt($jsonEncodedData, $CURRENT_MODEL)
 
     $costPerThousandTokens = TkGetCostPerThousandOutputTokens($CURRENT_MODEL);
     // connect to local Python server servicing tokenizing requests
-    $tokenizer_url = 'http://172.16.1.128:8090';
+    $tokenizer_url = 'http://127.0.0.1:8090';
     $tokenizer_headers = array(
         'http' => array(
             'method' => 'POST',
