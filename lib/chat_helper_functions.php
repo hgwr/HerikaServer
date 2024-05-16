@@ -214,7 +214,7 @@ function split_sentences_stream($paragraph)
         return [$paragraph];
     }
 
-    $sentences = preg_split('/(?<=[.!?])\s+/', $paragraph, -1, PREG_SPLIT_NO_EMPTY);
+    $sentences = preg_split('/(?<=[。！？.!?])\s+/', $paragraph, -1, PREG_SPLIT_NO_EMPTY);
 
     $splitSentences = [];
     $currentSentence = '';
